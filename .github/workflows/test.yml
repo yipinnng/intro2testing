@@ -11,22 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout repo
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # Step 2: Set up Python 3.7
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: 3.10
 
-
-    # Step 3: Install dependencies
     - name: Install Dependencies
       run: pip install -r requirements.txt
 
-    # Step 4: Run test script
     - name: Run test
       run: |
         cd code
