@@ -1,0 +1,32 @@
+name: test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout repo
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Python 3.7
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+
+    # Step 3: Install dependencies
+    - name: Install Dependencies
+      run: pip install -r requirements.txt
+
+    # Step 4: Run test script
+    - name: Run test
+      run: |
+        cd code
+        bash test.sh
